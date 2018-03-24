@@ -28,6 +28,7 @@ Route::middleware(['logging'])->group(function () { // Middleware for logging ac
 
     //Following routes
         Route::get('/follow/{id}', 'ProfileController@follow');
+        Route::get('/unfollow/{id}', 'ProfileController@unfollow');
 
 
     //Auth routes

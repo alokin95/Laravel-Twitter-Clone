@@ -23,16 +23,14 @@ class TweetsController extends Controller
     public function index()
     {
 
-        $user = new User;
+        $followed_users = User::find(auth()->user()->id)->following->pluck('id');
+        $followed_users[] = auth()->user()->id;
 
-        $users = $user->orderBy('created_at', 'desc')->where('id','!=',auth()->user()->id)->get();
+        $users = User::orderBy('created_at', 'desc')->whereNotIn('id',$followed_users)->get();
 
-        $tweet = new Tweet;
+        $followed_tweets = Tweet::latestTweets();
 
-        $tweets = $tweet->latestTweets();
-
-        return view('pages.home', compact('tweets', 'users'));
-
+        return view('pages.home',compact('followed_tweets', 'users'));
     }
 
     public function store(Request $request)

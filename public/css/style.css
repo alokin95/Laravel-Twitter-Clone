@@ -9,7 +9,7 @@ body {
 }
 
 .register {
-    background-color: #17A2B8;
+    background-color: #007bff;
 }
 
 .login {
@@ -123,6 +123,27 @@ body {
     background-color: #ffffff;
 }
 
+.recommended-user {
+    min-height: 80px;
+}
+
+.clear {
+    float: none;
+}
+
+.t-count {
+    width: 50%;
+    float: left;
+    position: relative;
+    top: 30px;
+}
+
+.follow-button {
+    text-align: right;
+    position: relative;
+    top: 10px;
+}
+
 .popular a:hover {
     text-decoration: none;
 }
@@ -139,23 +160,6 @@ body {
     height: 50px;
     text-align: right;
 }
-
-/*.follow {*/
-    /*background-color: #17a2b8;*/
-    /*border: none;*/
-    /*color: white;*/
-    /*cursor: pointer;*/
-    /*height: 40px;*/
-    /*border-radius: 20px;*/
-/*}*/
-/*.unfollow {*/
-    /*background-color: #e31e26;*/
-    /*border: none;*/
-    /*color: white;*/
-    /*cursor: pointer;*/
-    /*height: 40px;*/
-    /*border-radius: 20px;*/
-/*}*/
 
 .no-tweets {
     padding: 30% 0%;

@@ -21,29 +21,27 @@
 
                 </a>
 
-                {{$tweet->created_at->diffForHumans()}}
+                {{Carbon\Carbon::now()->parse($tweet->created_at)->diffForHumans()}}
 
                 <div class='tweet-body'>
                     {{$tweet->body}}
                 </div>
                 {{--TWEET END--}}
 
+                <hr>
                 <div class="form-group">
                     <form class="form-inline" method="POST" action="{{asset('/comments/'.$tweet->id)}}">
                         {{ csrf_field() }}
-                        <input type="text" name="comment" class="form-control input-sm"
+                        <input type="text" name="comment" id='comment' class="form-control input-sm"
                                placeholder="Type your response here">
                         <button type="submit" id="add-comment" class="btn btn-info">Submit</button>
                     </form>
                 </div>
-
                 <div class="form-group">
                     <div class="response-comments" id="tweetid_{{$tweet->id}}">
 
                     </div>
                 </div>
-
-
 
             </div>
             <div class="modal-footer">

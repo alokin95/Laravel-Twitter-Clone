@@ -9,7 +9,7 @@
 
 </a>
 
-{{$tweet->created_at->diffForHumans()}}
+{{Carbon\Carbon::now()->parse($tweet->created_at)->diffForHumans()}}
 
 <div class="post row">
     <div class='col-lg-8 tweet-body'>

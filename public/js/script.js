@@ -8,27 +8,20 @@ $(document).ready(function(){
 
         $.ajax({
             type: 'GET',
-            // headers: {
-            //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            // },
             url : BASE_URL + "/comments",
             _token : TOKEN,
-            // url: "http://localhost/clone/public/comments",
             data: {
                 id : tweet_id
             },
             success: function (response) {
-                console.log(response);
                 var text = "";
                 if (response.length>0){
                     $.each(response, function(index, value){
-                        console.log(value['body']);
-                        text+=`<a href="${BASE_URL}user/${value['user']['id']}">${value['user']['name']}</a> on
-                                ${value['created_at']}
+                        text+=`<a href="${BASE_URL}user/${value['user']['id']}">${value['user']['name']}</a> 
 
                         <div class='col-lg-8 tweet-body'>
                             ${value['body']}
-                        </div>`;
+                        </div><hr>`;
                     });
                 }
                 else {
@@ -58,6 +51,8 @@ $(document).ready(function(){
             }
         });
     });
+
+
 
     document.getElementById("uploadBtn").addEventListener('change', function(){
         document.getElementById("uploadFile").value = this.value;

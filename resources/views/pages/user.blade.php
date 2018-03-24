@@ -20,7 +20,7 @@
                 @if($user->id != auth()->user()->id)
                     @if(!auth()->user()->following->contains($user))
                         <a href="{{asset('/follow/'.$user->id)}}">
-                            <button class="btn btn-primary">Follow</button>
+                            <button class="btn btn-success">Follow</button>
                         </a>
                     @else
                         <a href="{{asset('unfollow/'.$user->id)}}">

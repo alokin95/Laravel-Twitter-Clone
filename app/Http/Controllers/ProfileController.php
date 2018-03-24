@@ -63,7 +63,17 @@ class ProfileController extends Controller
 
     public function follow($id){
 
-        dd(request());
+        auth()->user()->following()->attach($id);
+
+        return redirect()->back();
+
+    }
+
+    public function unfollow($id){
+
+        auth()->user()->following()->detach($id);
+
+        return redirect()->back();
 
     }
 }

@@ -38,29 +38,42 @@
                         </form>
                     </div>
                     <hr>
-                    <div class="blog-main">
-                        @foreach($tweets as $tweet)
+                    <div class="blog-main"">
 
-                            @include('pages.partials.tweet')
+                        @foreach($followed_tweets as $tweet)
+                                @include('pages.partials.tweet')
+                            @endforeach
 
-                        @endforeach
-                        <div class="links">
-                            {{$tweets->links()}}
-                        </div>
                     </div>
+                <div class="links">
+                    {{$followed_tweets->links()}}
+                </div>
                 </div>
 
                 <div class="col-lg-3 sidenav">
                     <div class="jumbotron popular">
                         <p><strong>Who to follow:</strong></p>
+                        <hr>
                         @foreach($users as $user)
-                            <a href="{{asset('/user/'.$user->id)}}">
-                                <img src="{{asset('/images/profile/'.$user->picture->path)}}" alt="{{$user->picture->alt}}" {{ $user->name }} >
-                                {{$user->name}}
-                            </a>
-                            <br/>
+                            <div class="recommended-user">
+                                <a href="{{asset('/user/'.$user->id)}}">
+                                    <img src="{{asset('/images/profile/'.$user->picture->path)}}" alt="{{$user->picture->alt}}" >
+                                    {{$user->name}}
+                                </a>
+                                <div class="clear"></div>
+                                <div class="t-count">
+                                    Tweets: {{$user->tweets->count()}}
+                                </div>
+                                <div class="follow-button">
+                                    <a href="{{asset('/follow/'.$user->id)}}">
+                                        <button class="btn btn-success">Follow</button>
+                                    </a>
+                                </div>
+
+                            </div>
+<hr>
                         @endforeach
-                        {{--{{$users->links()}}--}}
+
                     </div>
                 </div>
 

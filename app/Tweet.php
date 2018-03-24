@@ -32,13 +32,20 @@ class Tweet extends Model
 
     }
 
-    public function latestTweets()
+//    public function latestTweets()
+//    {
+//
+//        return $this->with('user')->orderBy('created_at', 'desc')->paginate(5);
+//
+//    }
+
+    public static function latestTweets()
     {
+        $followed_users = User::find(auth()->user()->id)->following->pluck('id');
+        $followed_tweets = self::whereIn('user_id', $followed_users)->orWhere('user_id',1)->orderBy('tweets.created_at','desc')->paginate(10);
 
-        return $this->with('user')->orderBy('created_at', 'desc')->paginate(5);
-
+        return $followed_tweets;
     }
-
 
     public function numberOfComments()
     {
