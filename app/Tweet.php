@@ -32,12 +32,6 @@ class Tweet extends Model
 
     }
 
-//    public function latestTweets()
-//    {
-//
-//        return $this->with('user')->orderBy('created_at', 'desc')->paginate(5);
-//
-//    }
 
     public static function latestTweets()
     {

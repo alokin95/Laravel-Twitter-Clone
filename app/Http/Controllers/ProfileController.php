@@ -21,7 +21,8 @@ class ProfileController extends Controller
 
     public function showUser($id = null)
     {
-        $user = $id ? User::find($id) : User::find(auth()->user()->id);
+//        $user = $id ? User::find($id) : User::find(auth()->user()->id);
+        $user = $id ? User::with('following','followers')->where('id',$id)->first() : User::with('following','followers')->where('id',auth()->user()->id)->first();
 
         return view('pages.user', compact('user'));
     }
@@ -65,7 +66,7 @@ class ProfileController extends Controller
 
         auth()->user()->following()->attach($id);
 
-        return redirect()->back();
+        return redirect('user/'.$id);
 
     }
 

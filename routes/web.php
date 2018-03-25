@@ -27,8 +27,8 @@ Route::middleware(['logging'])->group(function () { // Middleware for logging ac
         Route::post('/user', 'ProfileController@editPicture'); //Edit user picture
 
     //Following routes
-        Route::get('/follow/{id}', 'ProfileController@follow');
-        Route::get('/unfollow/{id}', 'ProfileController@unfollow');
+        Route::get('/follow', 'ProfileController@follow');
+        Route::get('/unfollow', 'ProfileController@unfollow');
 
 
     //Auth routes

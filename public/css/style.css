@@ -49,6 +49,7 @@ body {
     padding: 55px;
     text-align: center;
     background-color: white;
+    max-height: 400px;
 }
 
 .user-image button {
@@ -163,6 +164,19 @@ body {
 
 .no-tweets {
     padding: 30% 0%;
+}
+
+.follow {
+    min-height: 100px;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px #888888;
+    margin: 20px;
+}
+
+.follow img {
+    max-width: 100px;
+    height: 100%;
 }
 
 /*On small screens, set height to 'auto' for sidenav and grid */
