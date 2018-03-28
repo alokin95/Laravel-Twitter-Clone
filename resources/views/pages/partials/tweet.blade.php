@@ -27,7 +27,7 @@
         @if ($tweet->numberOfComments()==1)
             {{$tweet->numberOfComments()}} comment
         @elseif ($tweet->numberOfComments()>1)
-            {{$tweet->numberOfComments()}} comment
+            {{$tweet->numberOfComments()}} comments
         @else
             0 Comments
         @endif

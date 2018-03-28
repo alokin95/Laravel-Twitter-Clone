@@ -15,11 +15,11 @@ Route::middleware(['logging'])->group(function () { // Middleware for logging ac
 
     //Tweet routes
         Route::get('/home', 'TweetsController@index')->name('home'); //Index page with all tweets
-        Route::get('/comments', 'TweetsController@showTweetComments'); // Shows comments for the specified tweet
         Route::get('delete/{tweet}', 'TweetsController@delete'); //Delete a tweet
         Route::post('/tweets', 'TweetsController@store'); // Add a new tweet to the database
 
     //Comment routes
+        Route::get('/comments', 'TweetsController@showTweetComments'); // Shows comments for the specified tweet
         Route::post('/comments/{tweet}', 'CommentsController@store'); // Adds comment for specified tweet
 
     //Profile routes
@@ -27,8 +27,8 @@ Route::middleware(['logging'])->group(function () { // Middleware for logging ac
         Route::post('/user', 'ProfileController@editPicture'); //Edit user picture
 
     //Following routes
-        Route::get('/follow', 'ProfileController@follow');
-        Route::get('/unfollow', 'ProfileController@unfollow');
+        Route::get('/follow/{id}', 'ProfileController@follow');
+        Route::get('/unfollow/{id}', 'ProfileController@unfollow');
 
 
     //Auth routes

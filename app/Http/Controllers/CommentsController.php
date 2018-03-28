@@ -24,7 +24,9 @@ class CommentsController extends Controller
             'comment' => 'required|min:5|max:50'
             ]);
 
-            $tweet->addComment($comment['comment']);
+            $comment = $tweet->addComment($comment['comment']);
+
+            return $comment;
             \Log::info('Comment added by user ' . auth()->user()->email);
             return back();
             return redirect()->back();

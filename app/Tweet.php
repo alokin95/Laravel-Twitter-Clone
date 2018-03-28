@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\User;
 
 class Tweet extends Model
 {
@@ -36,6 +36,7 @@ class Tweet extends Model
     public static function latestTweets()
     {
         $followed_users = User::find(auth()->user()->id)->following->pluck('id');
+
         $followed_tweets = self::whereIn('user_id', $followed_users)->orWhere('user_id',auth()->user()->id)->orderBy('tweets.created_at','desc')->paginate(10);
 
         return $followed_tweets;
@@ -52,7 +53,9 @@ class Tweet extends Model
     public function addComment($comment)
     {
 
-        $this->comments()->create(['body' => $comment, 'user_id' => auth()->id()]);
+       $comm = $this->comments()->create(['body' => $comment, 'user_id' => auth()->id()]);
 
+       return User::find(auth()->user()->id)->with(['comments' => function ($query) use ($comm) {
+        $query->where('id', '=', $comm['id']);}])->first();
     }
 }

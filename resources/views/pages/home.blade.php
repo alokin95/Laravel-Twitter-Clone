@@ -11,12 +11,12 @@
             <div class="row content">
 
                 <div class="col-lg-3 sidenav">
-                    <div class="jumbotron user">
-                        <a href="{{asset('/user/'.auth()->user()->id)}}"><img
-                                    src="{{ asset('images/profile/'.auth()->user()->picture->path)}}"
-                                    alt="{{auth()->user()->picture->alt}}">
-                            <p>{{auth()->user()->name}}</p>
-                        </a>
+                    <div class="user">
+                        <div class="user-pic">
+                            <a href="{{asset('/user/'.auth()->user()->id)}}"><img src="{{ asset('images/profile/'.auth()->user()->picture->path)}}" alt="{{auth()->user()->picture->alt}}">
+                                <p>{{auth()->user()->name}}</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
 

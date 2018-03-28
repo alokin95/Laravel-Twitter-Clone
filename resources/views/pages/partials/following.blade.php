@@ -5,7 +5,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-
             </div>
             <div class="modal-body">
                 @if (count($user->following)==0)
@@ -18,9 +17,8 @@
                     @foreach($user->following as $following)
                         <a href="{{asset('user/'.$following->id)}}">
                             <div class="follow">
-                                <img src="{{asset('/images/profile/'.$following->picture->path)}}" alt="{{$following->picture->alt}}">
-                                {{$following->created_at}}
                                 {{$following->name}}
+                                <img src="{{asset('/images/profile/'.$following->picture->path)}}" alt="{{$following->picture->alt}}">
                             </div>
                         </a>
                     @endforeach

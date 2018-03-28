@@ -24,9 +24,6 @@ $(document).ready(function(){
                         </div><hr>`;
                     });
                 }
-                else {
-                    text += "There are no comments for this tweet";
-                }
                 $("#tweetid_"+tweet_id).html(text);
 
             }
@@ -52,6 +49,35 @@ $(document).ready(function(){
         });
     });
 
+    $("#add-comment").on('click', function(e){
+        e.preventDefault();
+
+        var comment = $("#comment").val();
+        var tweetid = $("#hidden-id").val();
+
+        $.ajax({
+            url: BASE_URL + 'comments/' + tweetid,
+            type: 'POST',
+            data: {
+                comment: comment,
+                tweetid: tweetid,
+                _token: TOKEN
+            },
+            success: function(response){
+
+                var text=`<a href="${BASE_URL}user/${response['id']}">${response['name']}</a> 
+
+                        <div class='col-lg-8 tweet-body'>
+                            ${response['comments'][0]['body']}
+                        </div><hr>`;
+
+                $("#tweetid_"+tweetid).append(text);
+
+                $("#mymodal-"+tweetid).animate({ scrollTop: $("#mymodal-"+tweetid)[0].scrollHeight}, 1000);
+
+            }
+        })
+    })
 
 
     document.getElementById("uploadBtn").addEventListener('change', function(){

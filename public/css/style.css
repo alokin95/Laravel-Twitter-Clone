@@ -22,11 +22,17 @@ body {
 
 .user {
     background-color: #ffffff;
+    min-height: 300px;
+    text-align: center;
 }
 
 .user img {
     max-width:100%;
     height: auto;
+}
+
+.user-pic {
+    width: 60%;
 }
 
 .posts {
@@ -136,7 +142,7 @@ body {
     width: 50%;
     float: left;
     position: relative;
-    top: 30px;
+    top: 20px;
 }
 
 .follow-button {
