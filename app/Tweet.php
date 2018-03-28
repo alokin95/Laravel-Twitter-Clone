@@ -36,7 +36,7 @@ class Tweet extends Model
     public static function latestTweets()
     {
         $followed_users = User::find(auth()->user()->id)->following->pluck('id');
-        $followed_tweets = self::whereIn('user_id', $followed_users)->orWhere('user_id',1)->orderBy('tweets.created_at','desc')->paginate(10);
+        $followed_tweets = self::whereIn('user_id', $followed_users)->orWhere('user_id',auth()->user()->id)->orderBy('tweets.created_at','desc')->paginate(10);
 
         return $followed_tweets;
     }

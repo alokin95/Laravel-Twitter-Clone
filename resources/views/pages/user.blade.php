@@ -38,7 +38,6 @@
                 @endif
 
             </div>
-
             <div class="row content">
                 <div class="user-image col-md-5">
                     {{$user->name}}

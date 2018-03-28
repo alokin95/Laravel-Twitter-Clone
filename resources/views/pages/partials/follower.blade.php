@@ -9,15 +9,23 @@
             </div>
             <div class="modal-body">
                 @if (count($user->followers)==0)
-                    This user does not have followers yet.
+                    @if(empty(request()->user))
+                        You currently have no followers.
+                        @else
+                        This user does not have followers yet.
+                    @endif
+                @else
+                    @foreach($user->followers as $follower)
+                        <a href="{{asset('user/'.$follower->id)}}">
+                            <div class="follow">
+                                <img src="{{asset('/images/profile/'.$follower->picture->path)}}" alt="{{$follower->picture->alt}}">
+                                {{$follower->created_at}}
+                                {{$follower->name}}
+                            </div>
+                        </a>
+                    @endforeach
                 @endif
-                @foreach($user->followers as $follower)
-                    <a href="{{asset('user/'.$follower->id)}}">
-                        <div class="follow">
-                            <img src="{{asset('/images/profile/'.$follower->picture->path)}}" alt="{{$follower->picture->alt}}">
-                        </div>
-                    </a>
-                @endforeach
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
