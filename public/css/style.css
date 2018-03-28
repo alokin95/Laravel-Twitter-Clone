@@ -10,10 +10,14 @@ body {
 
 .register {
     background-color: #007bff;
+    min-height: 650px;
+    padding: 100px 50px;
 }
 
 .login {
     background-color: white;
+    min-height: 650px;
+    padding: 100px 50px;
 }
 
 .sidenav {
