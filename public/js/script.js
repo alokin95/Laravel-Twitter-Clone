@@ -49,8 +49,7 @@ $(document).ready(function(){
         });
     });
 
-    $("#add-comment").on('click', function(e){
-        e.preventDefault();
+    $("#add-comment").on('click', function(){
 
         var comment = $("#comment").val();
         var tweetid = $("#hidden-id").val();
@@ -75,6 +74,21 @@ $(document).ready(function(){
 
                 $("#mymodal-"+tweetid).animate({ scrollTop: $("#mymodal-"+tweetid)[0].scrollHeight}, 1000);
 
+            }
+        })
+    });
+
+    $(".delete").on('click', function(e){
+        var tweetid = $(this).attr('id');
+
+        $.ajax({
+            url: BASE_URL + 'delete/' + tweetid,
+            type: "GET",
+            data: {
+                tweetid: tweetid
+            },
+            success: function(response){
+                $("#tweet-"+tweetid).remove();
             }
         })
     })

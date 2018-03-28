@@ -35,7 +35,7 @@
                         <input type="text" name="comment" id='comment' class="form-control input-sm"
                                placeholder="Type your response here">
                         <input type="hidden" value="{{$tweet->id}}" id="hidden-id">
-                        <button type="submit" id="add-comment" class="btn btn-info">Submit</button>
+                        <button id="add-comment" class="btn btn-info">Submit</button>
                     </form>
                 </div>
                 <div class="form-group">

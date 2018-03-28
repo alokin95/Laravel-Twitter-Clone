@@ -68,7 +68,6 @@ class TweetsController extends Controller
         try {
             $tweet->delete();
             \Log::info('Tweet deleted by ' .auth()->user()->name);
-            return redirect()->back();
         }
         catch (\Illuminate\Database\QueryException $ex) {
             \Log::error($ex->getMessage());

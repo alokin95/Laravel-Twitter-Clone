@@ -1,3 +1,4 @@
+<div id="tweet-{{$tweet->id}}">
 <a href="{{asset('user/'.$tweet->user->id)}}">
 
                                 <span class="profile-icon">
@@ -19,7 +20,7 @@
     <div class="col-lg-4">
 
         @if (auth()->id() == $tweet->user_id)
-            <a class="btn btn-danger" href="{{asset('/delete/'.$tweet->id)}}">Delete</a>
+            <a class="btn btn-danger delete" href="javascript:void(0)" id="{{$tweet->id}}">Delete</a>
         @endif
         <a href="#mymodal-{{$tweet->id}}" id='{{$tweet->id}}' role="button" value='test'
            class="btn btn-info show-comments" data-toggle="modal">View comments</a>
@@ -51,4 +52,5 @@
         </div>
     @endif
 </div>
-<hr>
+    <hr>
+</div>

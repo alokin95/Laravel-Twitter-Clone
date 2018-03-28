@@ -24,6 +24,10 @@ body {
     background-color: #ffffff;
     min-height: 300px;
     text-align: center;
+    padding: 45px;
+    text-align: center;
+    background-color: white;
+    max-height: 600px;
 }
 
 .user img {
@@ -161,6 +165,7 @@ body {
 
 .user-tweet {
     background-color: white;
+    padding-top: 40px;
 }
 
 .user-nav {

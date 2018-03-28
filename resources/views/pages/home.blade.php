@@ -12,11 +12,9 @@
 
                 <div class="col-lg-3 sidenav">
                     <div class="user">
-                        <div class="user-pic">
-                            <a href="{{asset('/user/'.auth()->user()->id)}}"><img src="{{ asset('images/profile/'.auth()->user()->picture->path)}}" alt="{{auth()->user()->picture->alt}}">
-                                <p>{{auth()->user()->name}}</p>
-                            </a>
-                        </div>
+                        <a href="{{asset('/user/'.auth()->user()->id)}}"><img src="{{ asset('images/profile/'.auth()->user()->picture->path)}}" alt="{{auth()->user()->picture->alt}}">
+                            <p>{{auth()->user()->name}}</p>
+                        </a>
                     </div>
                 </div>
 
@@ -38,7 +36,7 @@
                         </form>
                     </div>
                     <hr>
-                    <div class="blog-main"">
+                    <div class="blog-main">
 
                         @foreach($followed_tweets as $tweet)
                                 @include('pages.partials.tweet')
