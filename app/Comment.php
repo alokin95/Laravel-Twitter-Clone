@@ -24,6 +24,6 @@ class Comment extends Model
     }
 
     public static function showComments() {
-        return static::where('tweet_id', request()->id)->with('tweet', 'user')->orderBy('created_at','desc')->get();
+        return static::where('tweet_id', request()->id)->with('tweet', 'user')->orderBy('created_at','asc')->get();
     }
 }
