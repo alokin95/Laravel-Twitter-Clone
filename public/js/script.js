@@ -49,8 +49,8 @@ $(document).ready(function(){
         });
     });
 
-    $("#add-comment").on('click', function(){
-
+    $("#add-comment").on('click', function(e){
+        e.preventDefault();
         var comment = $("#comment").val();
         var tweetid = $("#hidden-id").val();
 
