@@ -49,25 +49,24 @@ $(document).ready(function(){
         });
     });
 
-    $("#add-comment").on('click', function(e){
+    $(".adding").on('submit', function(e){
         e.preventDefault();
-        var comment = $("#comment").val();
-        var tweetid = $("#hidden-id").val();
+        var comment = $(this).find('#comment').val();
+        var tweetid = $(this).find('#hidden-id').val();;
 
         $.ajax({
             url: BASE_URL + 'comments/' + tweetid,
             type: 'POST',
             data: {
                 comment: comment,
-                tweetid: tweetid,
                 _token: TOKEN
             },
             success: function(response){
 
-                var text=`<a href="${BASE_URL}user/${response['id']}">${response['name']}</a> 
+                var text=`<a href="${BASE_URL}user/${response['user']['id']}">${response['user']['name']}</a> 
 
                         <div class='col-lg-8 tweet-body'>
-                            ${response['comments'][0]['body']}
+                            ${response['body']}
                         </div><hr>`;
 
                 $("#tweetid_"+tweetid).append(text);
