@@ -30,12 +30,12 @@
 
                 <hr>
                 <div class="form-group">
-                    <form class="form-inline" method="POST" action="{{asset('/comments/'.$tweet->id)}}">
+                    <form class="form-inline adding" method="POST" action="{{asset('/comments/'.$tweet->id)}}">
                         {{ csrf_field() }}
-                        <input type="text" name="comment" id='comment' class="form-control input-sm"
+                        <input type="text" name="comment" id='comment' class="form-control input-sm comment"
                                placeholder="Type your response here">
                         <input type="hidden" value="{{$tweet->id}}" id="hidden-id">
-                        <button id="add-comment" class="btn btn-info">Submit</button>
+                        <button class="btn btn-info add-comment">Submit</button>
                     </form>
                 </div>
                 <div class="form-group">
