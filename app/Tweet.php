@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
+use App\Comment;
 
 class Tweet extends Model
 {
@@ -55,7 +56,11 @@ class Tweet extends Model
 
        $comm = $this->comments()->create(['body' => $comment, 'user_id' => auth()->id()]);
 
-       return User::find(auth()->user()->id)->with(['comments' => function ($query) use ($comm) {
-        $query->where('id', '=', $comm['id']);}])->first();
+
+       return Comment::with('user')->where('id','=',$comm['id'])->first();
+
+    //    return User::find(auth()->user()->id)->with(['comments' => function ($query) use ($comm) {
+    //         $query->where('id', '=', $comm['id']);
+    //     }])->first();
     }
 }
