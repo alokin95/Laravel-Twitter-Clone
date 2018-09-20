@@ -8,7 +8,7 @@ class Rating extends Model
 {
     //
     protected $guarded = [];
-    public $timestamps = false;
+    public $timestamps = false; //Can be omitted
 
     public function tweet()
     {
