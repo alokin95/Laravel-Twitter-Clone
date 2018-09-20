@@ -46,7 +46,7 @@ class Tweet extends Model
     public function numberOfComments()
     {
 
-        return $this->comments->where('tweet_id', $this->id)->count();
+        return $this->comments->count();
 
     }
 
